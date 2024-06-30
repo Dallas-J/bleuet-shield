@@ -46,16 +46,16 @@
 // ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫            ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫
 // ┃ CTRL┃ WinA┃ WinS┃ WinD┃ WinF┃ WinG┃  \  ┃            ┃  ]  ┃WinH ┃  ←  ┃  ↓  ┃  →  ┃Win; ┃Win' ┃
 // ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫<BRT+  VOL+>┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫
-// ┃ SHFT┃ WinZ┃ WinX┃ WinC┃ WinV┃ WinB┃BTPRO┃┃          ┃┃MUTE ┃WinN ┃WinM ┃Win, ┃Win. ┃Win/ ┃SHFT ┃
+// ┃ SHFT┃ WinZ┃ WinX┃ WinC┃ WinV┃ WinB┃BTCLR┃┃          ┃┃MUTE ┃WinN ┃WinM ┃Win, ┃Win. ┃Win/ ┃SHFT ┃
 // ┗━━━━━┻━━━━━┻━━━━━┻━━━━━╋━━━━━╋━━━━━╋━━━━━┫<BRT-  VOL->┣━━━━━╋━━━━━╋━━━━━╋━━━━━┻━━━━━┻━━━━━┻━━━━━┛
 //                         ┃ LWR ┃AltDL┃ SPC ┃            ┃ ENT ┃ BSP ┃ LWR ┃
 //                         ┗━━━━━┻━━━━━┻━━━━━┛            ┗━━━━━┻━━━━━┻━━━━━┛
             bindings = <
-&trans &kp F1    &kp F2    &kp F3    &kp F4    &kp F5      &none       &none  &kp F6    &kp F7    &kp F8        &kp F9      &kp F10       &kp F11
-&trans &kp LG(Q) &kp LG(W) &kp LG(E) &kp LG(R) &kp LG(T)   &trans      &trans &kp LG(Y) &kp LG(U) &kp UP        &kp LG(O)   &kp LG(P)     &kp F12
-&trans &kp LG(A) &kp LG(S) &kp LG(D) &kp LG(F) &kp LG(G)   &trans      &trans &kp LG(H) &kp LEFT  &kp DOWN      &kp RIGHT   &kp LG(SEMI)  &kp LG(SQT)
-&trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &kp LG(B)   &trans      &trans &kp LG(N) &kp LG(M) &kp LG(COMMA) &kp LG(DOT) &kp LG(FSLH)  &trans
-                                     &trans    &kp LA(DEL) &trans      &trans &trans &trans
+&trans &kp F1    &kp F2    &kp F3    &kp F4    &kp F5      &none         &none  &kp F6    &kp F7    &kp F8        &kp F9      &kp F10       &kp F11
+&trans &kp LG(Q) &kp LG(W) &kp LG(E) &kp LG(R) &kp LG(T)   &trans        &trans &kp LG(Y) &kp LG(U) &kp UP        &kp LG(O)   &kp LG(P)     &kp F12
+&trans &kp LG(A) &kp LG(S) &kp LG(D) &kp LG(F) &kp LG(G)   &trans        &trans &kp LG(H) &kp LEFT  &kp DOWN      &kp RIGHT   &kp LG(SEMI)  &kp LG(SQT)
+&trans &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &kp LG(B)   &bt BT_CLR    &trans &kp LG(N) &kp LG(M) &kp LG(COMMA) &kp LG(DOT) &kp LG(FSLH)  &trans
+                                     &trans    &kp LA(DEL) &trans        &trans &trans &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
