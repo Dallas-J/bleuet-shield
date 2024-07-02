@@ -64,7 +64,7 @@
                                &lt LOWER LGUI &kp DEL &kp SPACE      &kp ENTER  &kp BSPC &lt LOWER RGUI
             >;
 
-            sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp F7 F8 &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         lower_layer {
