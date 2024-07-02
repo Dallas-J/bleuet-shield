@@ -22,7 +22,7 @@
         combo_caps {
             timeout-ms = <200>;
             key-positions = <42 55>;
-            bindings = <&kp CAPS>;
+            bindings = <&caps_word>;
         };
     };
 
