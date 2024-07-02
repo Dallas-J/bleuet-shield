@@ -11,6 +11,11 @@
 #define BASE 0
 #define LOWER 1
 
+&lt {
+    flavor = "hold-preferred";
+    hold-while-undecided;
+};
+
 / {
     keymap {
         compatible = "zmk,keymap";
