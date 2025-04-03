@@ -14,24 +14,19 @@
 
 / {
     behaviors {
-        bt_encoder: behavior_bt_encoder {
-            compatible = "zmk,behavior-sensor-rotate";
-            #sensor-binding-cells = <0>;
-            bindings = <&bt BT_NXT>, <&bt BT_PRV>;
-        };
         bt_lp: behavior_bt_lp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
-            bindings = <&none>, <&bt>;
+            bindings = <&bt>, <&none>;
         };
         rst_lp: behavior_rst_lp {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <1000>;
-            bindings = <&sys_reset>, <&bootloader>;
+            bindings = <&bootloader>, <&sys_reset>;
         };
         win_td: behavior_win_td {
             compatible = "zmk,behavior-tap-dance";
@@ -95,9 +90,9 @@
 // ┃AlTAB┃ WinQ┃ WinW┃ WinE┃ WinR┃ WinT┃  `  ┃            ┃  [  ┃WinY ┃WinU ┃  ↑  ┃WinO ┃WinP ┃ F12 ┃
 // ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫            ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫
 // ┃ CTRL┃ WinA┃ WinS┃ WinD┃ WinF┃ WinG┃  \  ┃            ┃  ]  ┃WinH ┃  ←  ┃  ↓  ┃  →  ┃Win; ┃Win' ┃
-// ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫<BT+   VOL+>┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫
+// ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫<BRT+  VOL+>┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫
 // ┃ SHFT┃ WinZ┃ WinX┃ WinC┃ WinV┃ WinB┃BTCLR┃┃          ┃┃MUTE ┃WinN ┃WinM ┃Win, ┃Win. ┃Win/ ┃SHFT ┃
-// ┗━━━━━┻━━━━━┻━━━━━┻━━━━━╋━━━━━╋━━━━━╋━━━━━┫<BT-   VOL->┣━━━━━╋━━━━━╋━━━━━╋━━━━━┻━━━━━┻━━━━━┻━━━━━┛
+// ┗━━━━━┻━━━━━┻━━━━━┻━━━━━╋━━━━━╋━━━━━╋━━━━━┫<BRT-  VOL->┣━━━━━╋━━━━━╋━━━━━╋━━━━━┻━━━━━┻━━━━━┻━━━━━┛
 //                         ┃ Win ┃AltDL┃ SPC ┃            ┃ ENT ┃ BSP ┃ Win ┃
 //                         ┗━━━━━┻━━━━━┻━━━━━┛            ┗━━━━━┻━━━━━┻━━━━━┛
             bindings = <
@@ -108,7 +103,7 @@
                                           &kp LGUI  &kp LA(DEL) &trans           &trans      &trans &kp RGUI
             >;
 
-            sensor-bindings = <&bt_encoder &inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
