@@ -16,12 +16,10 @@
     macros {
         dm1: dyn-macro-1 {
             compatible = "zmk,behavior-dynamic-macro";
-            label = "dynamic-macro-1";
             #binding-cells = <1>;
         };
         dm2: dyn-macro-2 {
             compatible = "zmk,behavior-dynamic-macro";
-            label = "dynamic-macro-2";
             #binding-cells = <1>;
         };
         bt_m: bt-macro {
@@ -30,7 +28,7 @@
             bindings = <&macro_tap &bt BT_CLR>;
         };
         win_m: win-macro {
-            compatible = "zmk, behavior-macro";
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <20>;
             bindings
