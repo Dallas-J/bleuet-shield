@@ -13,29 +13,6 @@
 #define LOWER 1
 
 / {
-    behaviors {
-        bt_lp: behavior_bt_lp {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <1000>;
-            bindings = <&bt>, <&none>;
-        };
-        rst_lp: behavior_rst_lp {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <1000>;
-            bindings = <&bootloader>, <&sys_reset>;
-        };
-        win_td: behavior_win_td {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&mo LOWER>, <&kp LGUI>;
-        };
-    };
-
     macros {
         dm1: dyn-macro-1 {
             compatible = "zmk,behavior-dynamic-macro";
@@ -46,6 +23,40 @@
             compatible = "zmk,behavior-dynamic-macro";
             label = "dynamic-macro-2";
             #binding-cells = <1>;
+        };
+        bt_m: bt-macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &bt BT_CLR>;
+        };
+    };
+
+    behaviors {
+        bt_lp: behavior_bt_lp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
+            bindings = <&bt_m>, <&none>;
+        };
+        rst_lp: behavior_rst_lp {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <1000>;
+            bindings = <&bootloader>, <&sys_reset>;
+        };
+        win_ht: behavior_win_ht {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <0>;
+            require-prior-idle-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+        lwr_ht: behavior_lwr_ht {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            bindings = <&mo>, <&win_ht LOWER>;
         };
     };
 
@@ -73,11 +84,11 @@
 //                         ┃ LWR ┃ DEL ┃ SPC ┃            ┃ ENT ┃ BSP ┃ LWR ┃
 //                         ┗━━━━━┻━━━━━┻━━━━━┛            ┗━━━━━┻━━━━━┻━━━━━┛
             bindings = <
-&kp ESC   &kp N1 &kp N2 &kp N3 &kp N4  &kp N5  &dm1 PLAY      &dm2 PLAY  &kp N6   &kp N7    &kp N8    &kp N9   &kp N0   &kp MINUS
-&kp TAB   &kp Q  &kp W  &kp E  &kp R   &kp T   &kp GRAVE      &kp LBKT   &kp Y    &kp U     &kp I     &kp O    &kp P    &kp EQUAL
-&kp LCTRL &kp A  &kp S  &kp D  &kp F   &kp G   &kp BSLH       &kp RBKT   &kp H    &kp J     &kp K     &kp L    &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C  &kp V   &kp B   &kp LG(L)      &kp C_MUTE &kp N    &kp M     &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-                               &win_td &kp DEL &kp SPACE      &kp ENTER  &kp BSPC &win_td
+&kp ESC   &kp N1 &kp N2 &kp N3 &kp N4             &kp N5  &dm1 PLAY      &dm2 PLAY  &kp N6   &kp N7             &kp N8    &kp N9   &kp N0   &kp MINUS
+&kp TAB   &kp Q  &kp W  &kp E  &kp R              &kp T   &kp GRAVE      &kp LBKT   &kp Y    &kp U              &kp I     &kp O    &kp P    &kp EQUAL
+&kp LCTRL &kp A  &kp S  &kp D  &kp F              &kp G   &kp BSLH       &kp RBKT   &kp H    &kp J              &kp K     &kp L    &kp SEMI &kp SQT
+&kp LSHFT &kp Z  &kp X  &kp C  &kp V              &kp B   &kp LG(L)      &kp C_MUTE &kp N    &kp M              &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
+                               &lwr_ht LOWER LGUI &kp DEL &kp SPACE      &kp ENTER  &kp BSPC &lwr_ht LOWER RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -96,11 +107,11 @@
 //                         ┃ Win ┃AltDL┃ SPC ┃            ┃ ENT ┃ BSP ┃ Win ┃
 //                         ┗━━━━━┻━━━━━┻━━━━━┛            ┗━━━━━┻━━━━━┻━━━━━┛
             bindings = <
-&rst_lp 0 0 &kp F1    &kp F2    &kp F3    &kp F4    &kp F5      &dm1 RECORD      &dm2 RECORD &kp F6    &kp F7    &kp F8    &kp F9      &kp F10   &kp F11
-&swap       &kp LG(Q) &kp LG(W) &kp LG(E) &kp LG(R) &kp LG(T)   &trans           &trans      &kp LG(Y) &kp LG(U) &kp UP    &kp LG(O)   &kp LG(P) &kp F12
-&trans      &kp LG(A) &kp LG(S) &kp LG(D) &kp LG(F) &kp LG(G)   &trans           &trans      &kp LG(H) &kp LEFT  &kp DOWN  &kp RIGHT   &trans    &trans
-&trans      &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &kp LG(B)   &bt_lp BT_CLR    &trans      &kp LG(N) &trans    &trans    &kp LG(DOT) &trans    &trans
-                                          &kp LGUI  &kp LA(DEL) &trans           &trans      &trans &kp RGUI
+&rst_lp 0 0 &kp F1    &kp F2    &kp F3    &kp F4    &kp F5      &dm1 RECORD    &dm2 RECORD &kp F6    &kp F7    &kp F8    &kp F9      &kp F10   &kp F11
+&swap       &kp LG(Q) &kp LG(W) &kp LG(E) &kp LG(R) &kp LG(T)   &trans         &trans      &kp LG(Y) &kp LG(U) &kp UP    &kp LG(O)   &kp LG(P) &kp F12
+&trans      &kp LG(A) &kp LG(S) &kp LG(D) &kp LG(F) &kp LG(G)   &trans         &trans      &kp LG(H) &kp LEFT  &kp DOWN  &kp RIGHT   &trans    &trans
+&trans      &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &kp LG(B)   &bt_lp 0 0     &trans      &kp LG(N) &trans    &trans    &kp LG(DOT) &trans    &trans
+                                          &kp LGUI  &kp LA(DEL) &trans         &trans      &trans &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
