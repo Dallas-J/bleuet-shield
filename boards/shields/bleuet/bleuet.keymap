@@ -30,7 +30,7 @@
         win_m: win-macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <20>;
+            wait-ms = <50>;
             bindings
                 = <&macro_press &win_ht LGUI LOWER>
                 , <&macro_release &win_ht LGUI LOWER>
@@ -56,8 +56,8 @@
         win_ht: behavior_win_ht {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            tapping-term-ms = <0>;
-            require-prior-idle-ms = <1000>;
+            tapping-term-ms = <10>;
+            require-prior-idle-ms = <200>;
             bindings = <&kp>, <&mo>;
         };
         lwr_ht: behavior_lwr_ht {
