@@ -30,9 +30,9 @@
         win_m: win-macro {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <50>;
             bindings
                 = <&macro_press &win_ht LGUI LOWER>
+                , <&macro_wait_time 200>
                 , <&macro_release &win_ht LGUI LOWER>
                 ;
         };
