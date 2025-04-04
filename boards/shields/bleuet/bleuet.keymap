@@ -32,8 +32,8 @@
             #binding-cells = <0>;
             wait-ms = <20>;
             bindings
-                = <&macro_press &win_ht LOWER LGUI>
-                , <&macro_release &win_ht LOWER LGUI>
+                = <&macro_press &win_ht LGUI LOWER>
+                , <&macro_release &win_ht LGUI LOWER>
                 ;
         };
     };
@@ -58,7 +58,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <0>;
             require-prior-idle-ms = <1000>;
-            bindings = <&mo>, <&kp>;
+            bindings = <&kp>, <&mo>;
         };
         lwr_ht: behavior_lwr_ht {
             compatible = "zmk,behavior-hold-tap";
@@ -109,16 +109,16 @@
 // ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫            ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫
 // ┃ CTRL┃ WinA┃ WinS┃ WinD┃ WinF┃ WinG┃  \  ┃            ┃  ]  ┃WinH ┃  ←  ┃  ↓  ┃  →  ┃Win; ┃Win' ┃
 // ┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫<BRT+  VOL+>┣━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━╋━━━━━┫
-// ┃ SHFT┃ WinZ┃ WinX┃ WinC┃ WinV┃ WinB┃BTCLR┃┃          ┃┃MUTE ┃WinN ┃WinM ┃Win, ┃Win. ┃Win/ ┃SHFT ┃
+// ┃ SHFT┃ BT1 ┃ BT2 ┃ BT3 ┃ BT4 ┃ BT5 ┃BTCLR┃┃          ┃┃MUTE ┃WinN ┃WinM ┃Win, ┃Win. ┃Win/ ┃SHFT ┃
 // ┗━━━━━┻━━━━━┻━━━━━┻━━━━━╋━━━━━╋━━━━━╋━━━━━┫<BRT-  VOL->┣━━━━━╋━━━━━╋━━━━━╋━━━━━┻━━━━━┻━━━━━┻━━━━━┛
 //                         ┃ Win ┃AltDL┃ SPC ┃            ┃ ENT ┃ BSP ┃ Win ┃
 //                         ┗━━━━━┻━━━━━┻━━━━━┛            ┗━━━━━┻━━━━━┻━━━━━┛
             bindings = <
-&rst_lp 0 0 &kp F1    &kp F2    &kp F3    &kp F4    &kp F5      &dm1 RECORD    &dm2 RECORD &kp F6    &kp F7    &kp F8    &kp F9      &kp F10   &kp F11
-&swap       &kp LG(Q) &kp LG(W) &kp LG(E) &kp LG(R) &kp LG(T)   &trans         &trans      &kp LG(Y) &kp LG(U) &kp UP    &kp LG(O)   &kp LG(P) &kp F12
-&trans      &kp LG(A) &kp LG(S) &kp LG(D) &kp LG(F) &kp LG(G)   &trans         &trans      &kp LG(H) &kp LEFT  &kp DOWN  &kp RIGHT   &trans    &trans
-&trans      &kp LG(Z) &kp LG(X) &kp LG(C) &kp LG(V) &kp LG(B)   &bt_lp 0 0     &trans      &kp LG(N) &trans    &trans    &kp LG(DOT) &trans    &trans
-                                          &kp LGUI  &kp LA(DEL) &trans         &trans      &trans &kp RGUI
+&rst_lp 0 0 &kp F1       &kp F2       &kp F3       &kp F4       &kp F5       &dm1 RECORD    &dm2 RECORD &kp F6    &kp F7    &kp F8    &kp F9      &kp F10   &kp F11
+&swap       &kp LG(Q)    &kp LG(W)    &kp LG(E)    &kp LG(R)    &kp LG(T)    &trans         &trans      &kp LG(Y) &kp LG(U) &kp UP    &kp LG(O)   &kp LG(P) &kp F12
+&trans      &kp LG(A)    &kp LG(S)    &kp LG(D)    &kp LG(F)    &kp LG(G)    &trans         &trans      &kp LG(H) &kp LEFT  &kp DOWN  &kp RIGHT   &trans    &trans
+&trans      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt_lp 0 0     &trans      &kp LG(N) &trans    &trans    &kp LG(DOT) &trans    &trans
+                                                   &kp LGUI     &kp LA(DEL)  &trans         &trans      &trans &kp RGUI
             >;
 
             sensor-bindings = <&inc_dec_kp C_BRI_DN C_BRI_UP &inc_dec_kp C_VOL_UP C_VOL_DN>;
