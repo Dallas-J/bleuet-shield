@@ -37,7 +37,7 @@
                 = <&macro_press &win_ht LOWER LGUI>
                 , <&macro_release &win_ht LOWER LGUI>
                 ;
-        }
+        };
     };
 
     behaviors {
