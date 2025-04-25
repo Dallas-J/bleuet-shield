@@ -113,10 +113,10 @@
 //                         ┃ Win ┃AltDL┃ SPC ┃            ┃ ENT ┃ BSP ┃ Win ┃
 //                         ┗━━━━━┻━━━━━┻━━━━━┛            ┗━━━━━┻━━━━━┻━━━━━┛
             bindings = <
-&rst_lp 0 0 &kp F1       &kp F2    &kp F3    &kp F4    &kp F5      &dm1 RECORD    &dm2 RECORD &kp F6    &kp F7    &kp F8    &kp F9          &kp F10   &kp F11
-&swap       &kp LG(Q)    &kp LG(W) &kp LG(E) &kp LG(R) &kp LG(T)   &trans         &trans      &kp LG(Y) &kp LG(U) &kp UP    &kp LG(O)       &kp LG(P) &kp F12
-&trans      &kp LG(A)    &kp LG(S) &kp LG(D) &kp LG(F) &kp LG(G)   &trans         &trans      &kp LG(H) &kp LEFT  &kp DOWN  &kp RIGHT       &trans    &trans
-&trans      &out OUT_USB &bt_0     &bt_1     &bt_2     &bt_3       &bt_lp 0 0     &trans      &kp LG(N) &trans    &trans    &kp LC(LA(SPC)) &trans    &trans
+&rst_lp 0 0 &kp F1       &kp F2    &kp F3    &kp F4    &kp F5      &dm1 RECORD    &dm2 RECORD &kp F6    &kp F7    &kp F8    &kp F9      &kp F10   &kp F11
+&swap       &kp LG(Q)    &kp LG(W) &kp LG(E) &kp LG(R) &kp LG(T)   &trans         &trans      &kp LG(Y) &kp LG(U) &kp UP    &kp LG(O)   &kp LG(P) &kp F12
+&trans      &kp LG(A)    &kp LG(S) &kp LG(D) &kp LG(F) &kp LG(G)   &trans         &trans      &kp LG(H) &kp LEFT  &kp DOWN  &kp RIGHT   &trans    &trans
+&trans      &out OUT_USB &bt_0     &bt_1     &bt_2     &bt_3       &bt_lp 0 0     &trans      &kp LG(N) &trans    &trans    &kp LA(SPC) &trans    &trans
                                              &kp LGUI  &kp LA(DEL) &trans         &trans      &trans &kp RGUI
             >;
 
