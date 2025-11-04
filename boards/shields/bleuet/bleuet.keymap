@@ -15,6 +15,15 @@
 #define LOWEST 2
 
 / {
+    combos {
+        compatible = "zmk,combos";
+        combo_win {
+            timeout-ms = <100>;
+            key-positions = <56 61>;
+            bindings = <&kp LGUI>;
+        };
+    };
+
     macros {
         dm1: dyn-macro-1 {
             compatible = "zmk,behavior-dynamic-macro";
